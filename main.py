@@ -13,8 +13,6 @@ def get_summary(ai_question):
     )
 
 
-
-    #pass int eh 
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=[
