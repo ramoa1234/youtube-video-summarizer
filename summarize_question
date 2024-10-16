@@ -1,0 +1,37 @@
+from youtube_transcript_api import YouTubeTranscriptApi
+from openai import OpenAI
+
+
+def get_summary(ai_question, user_question):
+    client = OpenAI(
+    api_key= "sk-pboCP4Z9a0IeEhc3Qa_i5nG3RpYHGoA4fNjm7NlCeDT3BlbkFJ80osi4lZaPEeqSrSsm6ElMbzXFExCAZSuU2ZRC1goA",
+    organization="org-U1OqjvSUtE2t3gwXcoH0DuMI"
+
+    )
+
+
+    response = client.chat.completions.create(
+        model="gpt-4o-mini",
+        messages=[
+            {"role": "system", "content": user_question},
+             {"role": "user", "content": ai_question}
+        ]
+    )
+
+    message = response.choices[0].message.content
+    print(message)
+
+
+def main():
+    video_id = input("'input the video id here: ")
+    transcript = YouTubeTranscriptApi.get_transcript(video_id) 
+
+    ai_question = ""
+    for key in transcript:
+        x = key.get('text')
+        ai_question += x
+        
+    user_question = input("Enter question for the ai here \n")
+    get_summary(ai_question, user_question)
+
+main()
