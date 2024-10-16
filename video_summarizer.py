@@ -4,7 +4,6 @@ from openai import OpenAI
 test_video_id = "rXld2YqnEgY"
 
 
-
 def get_summary(ai_question):
     client = OpenAI(
     api_key= "enter API key here",
