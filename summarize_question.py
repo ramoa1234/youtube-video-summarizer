@@ -4,7 +4,7 @@ from openai import OpenAI
 
 def get_summary(ai_question, user_question):
     client = OpenAI(
-    api_key= "sk-pboCP4Z9a0IeEhc3Qa_i5nG3RpYHGoA4fNjm7NlCeDT3BlbkFJ80osi4lZaPEeqSrSsm6ElMbzXFExCAZSuU2ZRC1goA",
+    api_key= "Enter Api key Here",
     organization="org-U1OqjvSUtE2t3gwXcoH0DuMI"
 
     )
